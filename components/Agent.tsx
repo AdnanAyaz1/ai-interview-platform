@@ -116,6 +116,7 @@ const Agent = ({
 
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
+    console.log("type", type);
     console.log("SECRET KEY", process.env.NEXT_PUBLIC_VAPI_WEB_TOKEN);
     if (type === "generate") {
       await vapi.start(process.env.NEXT_PUBLIC_VAPI_WEB_TOKEN!, {
@@ -132,7 +133,7 @@ const Agent = ({
           .join("\n");
       }
 
-      await vapi.start(interviewer, {
+      await vapi.start(process.env.NEXT_PUBLIC_VAPI_WEB_TOKEN!, {
         variableValues: {
           questions: formattedQuestions,
         },
