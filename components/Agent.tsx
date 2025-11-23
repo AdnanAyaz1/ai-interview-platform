@@ -116,7 +116,7 @@ const Agent = ({
 
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
-
+    console.log("SECRET KEY", process.env.NEXT_PUBLIC_VAPI_WEB_TOKEN);
     if (type === "generate") {
       await vapi.start(process.env.NEXT_PUBLIC_VAPI_WEB_TOKEN!, {
         variableValues: {
